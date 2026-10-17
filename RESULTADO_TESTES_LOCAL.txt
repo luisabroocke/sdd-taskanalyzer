@@ -1,0 +1,53 @@
+Comando: python -m pytest tests/test_harness.py -v
+Exit code: 0
+
+STDOUT:
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.13.5, pytest-9.0.2, pluggy-1.6.0 -- /opt/pyvenv/bin/python
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.5', 'Platform': 'Linux-6.18.55-x86_64-with-glibc2.41', 'Packages': {'pytest': '9.0.2', 'pluggy': '1.6.0'}, 'Plugins': {'anyio': '4.13.0', 'ddtrace': '4.4.0', 'Faker': '40.1.2', 'asyncio': '1.3.0', 'cov': '7.0.0', 'json-report': '1.5.0', 'metadata': '3.1.1'}, 'PLATFORM': 'linux/amd64', 'CI': 'true'}
+rootdir: /mnt/data/sdd-task-analyzer
+plugins: anyio-4.13.0, ddtrace-4.4.0, Faker-40.1.2, asyncio-1.3.0, cov-7.0.0, json-report-1.5.0, metadata-3.1.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+[1mcollecting ... [0mcollected 25 items
+
+tests/test_harness.py::test_ac01_metricas_gerais_e_por_prioridade [32mPASSED[0m[32m [  4%][0m
+tests/test_harness.py::test_ac02_conclusao_antes_do_inicio [32mPASSED[0m[32m        [  8%][0m
+tests/test_harness.py::test_ac03_sem_tarefas_concluidas[itens0] [32mPASSED[0m[32m   [ 12%][0m
+tests/test_harness.py::test_ac03_sem_tarefas_concluidas[itens1] [32mPASSED[0m[32m   [ 16%][0m
+tests/test_harness.py::test_ac04_limite_do_prazo_e_grupos_vazios [32mPASSED[0m[32m  [ 20%][0m
+tests/test_harness.py::test_ac05_criacao_como_inicio_de_referencia [32mPASSED[0m[32m [ 24%][0m
+tests/test_harness.py::test_ac06_prioridade_desconhecida [32mPASSED[0m[32m          [ 28%][0m
+tests/test_harness.py::test_ac07_fuso_utc_obrigatorio [32mPASSED[0m[32m             [ 32%][0m
+tests/test_harness.py::test_ac08_identificador_duplicado [32mPASSED[0m[32m          [ 36%][0m
+tests/test_harness.py::test_ac09_arredondamento_sem_arredondamento_intermediario [32mPASSED[0m[32m [ 40%][0m
+tests/test_harness.py::test_ac10_duracao_zero [32mPASSED[0m[32m                     [ 44%][0m
+tests/test_harness.py::test_ac11_mudanca_de_dia [32mPASSED[0m[32m                   [ 48%][0m
+tests/test_harness.py::test_ac12_ordem_entrada_e_chamadas_independentes [32mPASSED[0m[32m [ 52%][0m
+tests/test_harness.py::test_id_tarefa_invalido[0] [32mPASSED[0m[32m                 [ 56%][0m
+tests/test_harness.py::test_id_tarefa_invalido[-1] [32mPASSED[0m[32m                [ 60%][0m
+tests/test_harness.py::test_id_tarefa_invalido[True] [32mPASSED[0m[32m              [ 64%][0m
+tests/test_harness.py::test_id_tarefa_invalido[1.5] [32mPASSED[0m[32m               [ 68%][0m
+tests/test_harness.py::test_entrada_nao_e_lista [32mPASSED[0m[32m                   [ 72%][0m
+tests/test_harness.py::test_item_nao_e_tarefa [32mPASSED[0m[32m                     [ 76%][0m
+tests/test_harness.py::test_status_e_conclusao_incompativeis[desconhecido-None] [32mPASSED[0m[32m [ 80%][0m
+tests/test_harness.py::test_status_e_conclusao_incompativeis[pendente-conclusao1] [32mPASSED[0m[32m [ 84%][0m
+tests/test_harness.py::test_status_e_conclusao_incompativeis[concluida-None] [32mPASSED[0m[32m [ 88%][0m
+tests/test_harness.py::test_datas_fora_de_utc_sao_rejeitadas [32mPASSED[0m[32m      [ 92%][0m
+tests/test_harness.py::test_prazo_antes_da_criacao [32mPASSED[0m[32m                [ 96%][0m
+tests/test_harness.py::test_inicio_antes_da_criacao [32mPASSED[0m[32m               [100%][0m
+
+[32m============================== [32m[1m25 passed[0m[32m in 0.11s[0m[32m ==============================[0m
+
+STDERR:
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
