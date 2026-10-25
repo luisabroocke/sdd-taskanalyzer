@@ -1,0 +1,6 @@
+services:
+  task-analyzer-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: task-analyzer-tests
