@@ -89,3 +89,74 @@ Exemplos de mensagens:
 
 ## Homologação humana
 O código foi preparado para revisão, mas a estudante deve executar os testes no próprio ambiente, revisar as regras e registrar as evidências reais. Não declare resultados de testes, PRs ou vídeos que ainda não foram executados/criados.
+
+ 
+
+---
+
+## Fase 3 — CI/CD, Docker e Governança de IA
+
+Esta etapa amplia o projeto TaskAnalyzer com integração contínua, execução isolada dos testes e documentação das práticas de governança e uso responsável de Inteligência Artificial. O escopo funcional e o contrato SDD definidos nas etapas anteriores devem ser preservados.
+
+### Integração contínua — GitHub Actions
+
+O workflow `.github/workflows/tests.yml` automatiza a validação do projeto por meio de:
+
+- Configuração do Python 3.11.
+- Instalação das dependências declaradas em `requirements.txt`.
+- Execução dos testes automatizados com `pytest`.
+- Construção da imagem Docker para verificar a configuração de containerização.
+
+O workflow está configurado para executar em eventos de `push` nas branches `main`, `develop` e `feature/**`, além de `pull_request` direcionado a `main` e `develop`.
+
+Os resultados das execuções devem ser consultados na aba **Actions** do GitHub. A aprovação de cada execução deve ser comprovada pelas evidências correspondentes.
+
+### Docker e Docker Compose
+
+O projeto utiliza os arquivos `Dockerfile` e `docker-compose.yml` para permitir a execução dos testes em um ambiente isolado, baseado em Python 3.11.
+
+Para construir a imagem Docker:
+
+```bash
+docker build -t task-analyzer .
+```
+
+Para executar os testes no contêiner:
+
+```bash
+docker run --rm task-analyzer
+```
+
+Para executar os testes com Docker Compose:
+
+```bash
+docker compose up --build --abort-on-container-exit --exit-code-from task-analyzer-tests
+```
+
+Os comandos devem ser executados no terminal, na raiz do repositório, em um ambiente com Docker instalado e em execução.
+
+### Governança e uso responsável da IA
+
+A governança do projeto considera os seguintes elementos:
+
+- `CONTEXT_RULES.md`: orientações e restrições para o desenvolvimento assistido por IA.
+- `specs/task_analyzer_spec.md`: contrato técnico e critérios de aceite do sistema.
+- `tests/test_harness.py`: validação automatizada do comportamento esperado.
+- `RELATORIO_GOVERNANCA_ETICA_IA.md`: registro dos riscos, das medidas de controle e da responsabilidade humana no uso da IA.
+
+As respostas e sugestões geradas por IA devem ser tratadas como propostas sujeitas a verificação. A especificação, as regras de contexto e os testes devem orientar a implementação. A revisão humana é necessária para identificar possíveis alucinações, avaliar alterações e confirmar a conformidade antes da integração.
+
+### Homologação da Fase 3
+
+A homologação deve verificar:
+
+- [ ] Workflow do GitHub Actions executado com sucesso.
+- [ ] Testes automatizados aprovados.
+- [ ] Imagem Docker construída com sucesso.
+- [ ] Testes executados no contêiner.
+- [ ] Documentação de governança e ética revisada.
+- [ ] Alterações revisadas antes do merge para a branch principal.
+- [ ] Capturas de tela das evidências reais organizadas para a entrega.
+- [ ] Vídeo técnico e PDF final preparados conforme as orientações do desafio.
+
+Os itens devem ser marcados somente depois da verificação correspondente. Resultados, capturas de tela e homologações devem refletir o que foi efetivamente executado.
